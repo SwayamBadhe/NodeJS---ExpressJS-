@@ -7,12 +7,9 @@ require('dotenv').config();
 // middleware
 // pasrses incoming requests with JSON payloads
 app.use(express.json())
+app.use(express.static('./public'))
 
 // routes
-app.get('/hello', (req, res) => {
-    res.send('Task Manager APP')
-})
-
 app.use('/api/v1/tasks', tasks)
 
 const port = 3000;
