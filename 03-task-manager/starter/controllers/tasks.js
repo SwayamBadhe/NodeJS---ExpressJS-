@@ -1,13 +1,10 @@
 const Task = require('../models/tasks');
+const asyncWrapper = require('../middleware/async');
 
-const getAllTasks = async (req, res) => {
-    try {
+const getAllTasks = asyncWrapper( async (req, res) => {    
         const tasks = await Task.find({})
-        res.status(200).json({ tasks, amount: tasks.length });
-    } catch (error) {
-        res.status(500).json({ msg: error})
-    }
-}
+        res.status(200).json({ tasks });
+})
 
 const createTasks = async (req, res) => {
     try {
