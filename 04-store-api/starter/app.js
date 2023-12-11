@@ -6,6 +6,7 @@ require('dotenv').config()
 
 
 // async errors
+require('express-async-errors')
 
 const notFoundMiddleware = require('./middleware/not-found')
 const errorMiddleware = require('./middleware/error-handler')
